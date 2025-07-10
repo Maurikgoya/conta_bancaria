@@ -1,6 +1,6 @@
 import readline = require("readline-sync");
-import { colors } from "./scr/util/Colors";
-import { Conta } from "./scr/model/Conta";
+import { colors } from "./src/util/Colors";
+import { Conta } from "./src/model/Conta";
 
 export function main() {
 
