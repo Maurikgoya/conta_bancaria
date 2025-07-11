@@ -1,4 +1,4 @@
-export class Conta {
+export abstract class Conta {
 
   private _numero: number;
   private _agencia: number;
@@ -65,22 +65,22 @@ export class Conta {
     return true;
   }
 
-  public depositar(valor: number): void{
+  public depositar(valor: number): void {
     this._saldo += valor;
   }
 
-  public visualizar(): void{
+  public visualizar(): void {
 
     let tipo: string = "";
 
     switch (this._tipo) {
-        case 1:
-            tipo = "Conta Corrente";
-            break;
-        
-        case 2:
-            tipo = "Conta Poupanca";
-            break;
+      case 1:
+        tipo = "Conta Corrente";
+        break;
+
+      case 2:
+        tipo = "Conta Poupanca";
+        break;
     }
     console.log("\n\n*******************************************************");
     console.log("Dados da conta:");
@@ -89,7 +89,7 @@ export class Conta {
     console.log("Agencia: " + this._agencia);
     console.log("Tipo da conta: " + this._tipo);
     console.log("Titular: " + this._titular);
-    console.log("Saldo: " + this._saldo);
-    
+    console.log("Saldo: " + this._saldo.toFixed(2));
+
   }
 }
