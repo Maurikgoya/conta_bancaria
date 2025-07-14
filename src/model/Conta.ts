@@ -1,10 +1,10 @@
 export abstract class Conta {
 
-  private _numero: number;
-  private _agencia: number;
-  private _tipo: number;
-  private _titular: string;
-  private _saldo: number;
+  protected _numero: number;
+  protected _agencia: number;
+  protected _tipo: number;
+  protected _titular: string;
+  protected _saldo: number;
 
   constructor(numero: number, agencia: number, tipo: number, titular: string, saldo: number) {
     this._numero = numero;
@@ -14,43 +14,43 @@ export abstract class Conta {
     this._saldo = saldo;
   }
 
-  public getNumero(): number {
+  public get numero(): number {
     return this._numero;
   }
 
-  public setNumero(value: number) {
+  public set numero(value: number) {
     this._numero = value;
   }
 
-  public getAgencia(): number {
+  public get agencia(): number {
     return this._agencia;
   }
 
-  public setAgencia(value: number) {
+  public set agencia(value: number) {
     this._agencia = value;
   }
 
-  public getTipo(): number {
+  public get tipo(): number {
     return this._tipo;
   }
 
-  public setTipo(value: number) {
+  public set tipo(value: number) {
     this._tipo = value;
   }
 
-  public getTitular(): string {
+  public get titular(): string {
     return this._titular;
   }
 
-  public setTitular(value: string) {
+  public set titular(value: string) {
     this._titular = value;
   }
 
-  public getSaldo(): number {
+  public get saldo(): number {
     return this._saldo;
   }
 
-  public setSaldo(value: number) {
+  public set saldo(value: number) {
     this._saldo = value;
   }
 
