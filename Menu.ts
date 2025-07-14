@@ -12,7 +12,7 @@ export function main() {
     //Variáveis auxiliares
     let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
     let titular: string;
-    const tiposContas = ['Conta Corrente', 'Conta Poupanca']
+    const tiposContas = ['Conta Corrente', 'Conta Poupanca'];
 
     const contaCorrente: ContaCorrente = new ContaCorrente(2, 321, 1, "Luis", 10000, 1000);
     contaCorrente.visualizar();
@@ -150,7 +150,7 @@ export function main() {
                             break;
                     }
                 } else {
-                    console.log(colors.fg.red, "\nA Conta numero " + numero + " nao foi encontrada!", colors.reset)
+                    console.log(colors.fg.red, "\nA Conta numero " + numero + " nao foi encontrada!", colors.reset);
                 }
 
                 keyPress()
