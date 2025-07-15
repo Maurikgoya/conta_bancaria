@@ -10,23 +10,23 @@ export function main() {
     let contas: ContaController = new ContaController;
 
     //Variáveis auxiliares
-    let opcao, numero, agencia, tipo, saldo, limite, aniversario: number;
+    let opcao, numero, agencia, tipo, saldo, limite, aniversario, valor, numeroDestino: number;
     let titular: string;
     const tiposContas = ['Conta Corrente', 'Conta Poupanca'];
 
-    const contaCorrente: ContaCorrente = new ContaCorrente(2, 321, 1, "Luis", 10000, 1000);
-    contaCorrente.visualizar();
-    contaCorrente.sacar(1300);
-    contaCorrente.visualizar();
-    contaCorrente.depositar(225.40);
-    contaCorrente.visualizar();
+    // const contaCorrente: ContaCorrente = new ContaCorrente(2, 321, 1, "Luis", 10000, 1000);
+    // contaCorrente.visualizar();
+    // contaCorrente.sacar(1300);
+    // contaCorrente.visualizar();
+    // contaCorrente.depositar(225.40);
+    // contaCorrente.visualizar();
 
-    const contaPoupanca: ContaPoupanca = new ContaPoupanca(3, 312, 2, "Luca", 1300, 7);
-    contaPoupanca.visualizar();
-    contaPoupanca.sacar(1300);
-    contaPoupanca.visualizar();
-    contaPoupanca.depositar(225.40);
-    contaPoupanca.visualizar();
+    // const contaPoupanca: ContaPoupanca = new ContaPoupanca(3, 312, 2, "Luca", 1300, 7);
+    // contaPoupanca.visualizar();
+    // contaPoupanca.sacar(1300);
+    // contaPoupanca.visualizar();
+    // contaPoupanca.depositar(225.40);
+    // contaPoupanca.visualizar();
 
     while (true) {
 
@@ -128,12 +128,12 @@ export function main() {
                     console.log("Digite o numero da Agencia: ");
                     agencia = readline.questionInt("");
 
-                    console.log("Digite o nome do Titular da Conta: ")
+                    console.log("Digite o nome do Titular da Conta: ");
                     titular = readline.question("");
 
                     tipo = conta.tipo;
 
-                    console.log("\nDigite o saldo da conta (R$): ")
+                    console.log("\nDigite o saldo da conta (R$): ");
                     saldo = readline.questionFloat("");
 
                     switch (tipo) {
@@ -159,7 +159,7 @@ export function main() {
                 console.log(colors.fg.whitestrong,
                     "\n\nApagar uma conta\n\n", colors.reset);
 
-                console.log("\nDigite numero da conta: ")
+                console.log("\nDigite numero da conta: ");
                 numero = readline.questionInt("");
                 contas.deletar(numero);
 
@@ -169,17 +169,44 @@ export function main() {
                 console.log(colors.fg.whitestrong,
                     "\n\nSaque\n\n", colors.reset);
 
+                console.log("Digite o numero da conta: ");
+                numero = readline.questionInt("");
+
+                console.log("Digite o valor do Saque (R$): ");
+                valor = readline.questionFloat("");
+
+                contas.sacar(numero, valor);
+
                 keyPress()
                 break;
             case 7:
                 console.log(colors.fg.whitestrong,
                     "\n\nDeposito\n\n", colors.reset);
 
+                console.log("Digite o numero da conta: ");
+                numero = readline.questionInt("");
+
+                console.log("Digite o valor do Deposito (R$): ");
+                valor = readline.questionFloat("");
+
+                contas.depositar(numero, valor);
+
                 keyPress()
                 break;
             case 8:
                 console.log(colors.fg.whitestrong,
                     "\n\nTransferencia entre contas\n\n", colors.reset);
+
+                console.log("Digite o numero da conta de Origem: ");
+                numero = readline.questionInt("");
+
+                console.log("Digite o numero da conta de Destino: ");
+                numeroDestino = readline.questionInt("");
+
+                console.log("Digite o valor do Deposito (R$): ");
+                valor = readline.questionFloat("");
+
+                contas.transferir(numero, numeroDestino, valor);
 
                 keyPress()
                 break;
